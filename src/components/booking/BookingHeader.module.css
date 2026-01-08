@@ -1,0 +1,51 @@
+.header {
+  background: linear-gradient(135deg, #7C7CFF 0%, #6B6BFF 100%);
+  color: white;
+  padding: 20px;
+}
+
+.backButton {
+  font-size: 24px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+.backButton:hover { opacity: 0.8; }
+
+.movieTitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ratingBadge {
+  background: #4CAF50;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.cinemaInfo { font-size: 14px; margin-bottom: 4px; opacity: 0.95; }
+.screenInfo { font-size: 14px; margin-bottom: 12px; opacity: 0.9; }
+
+.datetimeRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.datetime { display: flex; align-items: center; gap: 15px; }
+
+.changeTime {
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.changeTime:hover { opacity: 0.8; }

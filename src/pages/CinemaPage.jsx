@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './CinemaPage.module.css';
 import Header from '../components/layout/Header/Header';
 import Footer from '../components/layout/Footer/Footer';
@@ -11,6 +12,7 @@ import { generateDates } from '../utils/dateHelpers';
 import { mockMovies } from '../data/mockMovies';
 
 const CinemaPage = () => {
+  const navigate = useNavigate();
   const [location, setLocation] = useState('Vincom Mega Mall Smart City');
   const [currentLang, setCurrentLang] = useState('EN');
   const [activeTheaterTab, setActiveTheaterTab] = useState(0);
@@ -30,7 +32,7 @@ const CinemaPage = () => {
 
   const handleBooking = (sessionId) => {
     console.log('Booking session:', sessionId);
-    alert(`Booking for session: ${sessionId}`);
+    navigate('/booking');
   };
 
   const handleDetailsClick = (movieId) => {

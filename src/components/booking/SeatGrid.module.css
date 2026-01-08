@@ -1,0 +1,68 @@
+.gridWrapper {
+  margin-bottom: 40px;
+}
+
+.screenLabel {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #666;
+}
+
+.screenDivider {
+  width: 400px;
+  height: 3px;
+  background: #1a1a1a;
+  margin: 0 auto 30px;
+  border-radius: 2px;
+}
+
+.seatingArea {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.rowLabels {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 25px;
+}
+
+.rowLabel {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+}
+
+.seatsGrid { flex: 1; }
+
+.columnLabels {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+  justify-content: center;
+}
+
+.columnLabel {
+  width: 32px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+}
+
+.seatsContainer { display: flex; flex-direction: column; gap: 6px; }
+
+.seatRow { display: flex; gap: 6px; justify-content: center; }
+
+@media (max-width: 768px) {
+  .seatingArea { flex-direction: column; align-items: center; }
+  .screenDivider { width: 300px; }
+}
