@@ -1,0 +1,7 @@
+.showtimeSection {
+  margin-bottom: 25px;
+}
+
+.showtimeSection:last-child {
+  margin-bottom: 0;
+}

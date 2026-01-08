@@ -1,0 +1,43 @@
+.dateItem {
+  min-width: 60px;
+  text-align: center;
+  padding: 12px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 2px solid transparent;
+}
+
+.dateItem:hover {
+  background: #f5f5f5;
+}
+
+.dateItem.active {
+  background: #1a1a1a;
+  color: white;
+}
+
+.dateDay {
+  font-size: 11px;
+  margin-bottom: 4px;
+  color: #666;
+}
+
+.dateItem.active .dateDay {
+  color: #ccc;
+}
+
+.dateNumber {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.dateMonth {
+  font-size: 11px;
+  margin-top: 2px;
+  color: #666;
+}
+
+.dateItem.active .dateMonth {
+  color: #ccc;
+}

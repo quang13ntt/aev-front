@@ -1,0 +1,28 @@
+.theaterBanner {
+  position: relative;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.theaterImage {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  background: linear-gradient(135deg, #2a2a3a 0%, #1a1a2a 100%);
+  background-size: cover;
+  background-position: center;
+}
+
+.theaterTabs {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .theaterImage {
+    height: 200px;
+  }
+}

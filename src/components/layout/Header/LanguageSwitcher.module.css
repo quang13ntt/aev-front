@@ -1,0 +1,20 @@
+.langSwitcher {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.langOption {
+  cursor: pointer;
+  color: #666;
+  transition: all 0.2s;
+}
+
+.langOption:hover {
+  color: #1a1a1a;
+}
+
+.langOption.active {
+  font-weight: 600;
+  color: #1a1a1a;
+}

@@ -1,0 +1,28 @@
+.navMenu {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.navMenu a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-size: 14px;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.navMenu a:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .navMenu {
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .navMenu a {
+    font-size: 13px;
+  }
+}

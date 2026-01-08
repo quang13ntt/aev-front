@@ -1,0 +1,12 @@
+.showtimeHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.screenLabel {
+  font-size: 13px;
+  color: #666;
+}

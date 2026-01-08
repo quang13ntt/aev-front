@@ -1,0 +1,44 @@
+.dateSelector {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 30px 0;
+  padding: 20px 0;
+}
+
+.dateNav {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.dateNav:hover {
+  background: #f5f5f5;
+}
+
+.datesScroll {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  flex: 1;
+  scrollbar-width: none;
+}
+
+.datesScroll::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .dateSelector {
+    gap: 10px;
+  }
+}

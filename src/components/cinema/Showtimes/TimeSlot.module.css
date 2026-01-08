@@ -1,0 +1,55 @@
+.timeSlot {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.timeButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.timeButton:hover:not(.soldOut) {
+  border-color: #1a1a1a;
+  background: #f9f9f9;
+}
+
+.timeButton.soldOut {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.timeInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.startTime {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.endTime {
+  font-size: 11px;
+  color: #666;
+  margin-top: 2px;
+}
+
+.formatInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+}
+
+.screenInfo {
+  color: #666;
+}
