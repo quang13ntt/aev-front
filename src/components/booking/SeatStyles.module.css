@@ -8,42 +8,70 @@
   position: relative;
   font-size: 16px;
   font-family: 'ABC Diatype', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .seat:hover:not(:disabled) {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
+.seatIcon {
+  font-size: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Regular seats */
 .regular {
   background: #7FDBDA;
 }
 
+/* VIP seats */
 .vip {
   background: #D4E157;
 }
 
+/* Sweet Box seats */
 .sweetbox {
   background: #7986CB;
 }
 
+/* Merged Sweet Box spans 2 cells */
+.mergedSeat {
+  width: auto;
+}
+
+/* Supreme seats */
 .supreme {
   background: #CE93D8;
 }
 
-.occupied {
-  background: #0D0D0D;
-  cursor: not-allowed;
-}
-
-.unavailable {
-  background: #E0E0E0;
-  cursor: not-allowed;
-}
-
+/* Wheelchair accessible seats */
 .wheelchair {
   background: #FFE082;
 }
 
+.wheelchair .seatIcon {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Booked seats - all same color regardless of type */
+.booked {
+  background: #0D0D0D !important;
+  cursor: not-allowed;
+  color: #fff;
+}
+
+.booked .seatIcon {
+  color: #fff;
+  font-size: 0;
+}
+
+/* Selected seats */
 .selected {
   outline: 3px solid #FF5722;
   outline-offset: 2px;
