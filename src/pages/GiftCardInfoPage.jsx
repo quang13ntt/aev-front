@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
+import GiftCardHeader from '../components/giftcard/GiftCardHeader';
+import GiftCardInfoRow from '../components/giftcard/GiftCardInfoRow';
+import GiftCardPromoCard from '../components/giftcard/GiftCardPromoCard';
+import ActionButton from '../components/giftcard/ActionButton';
 import styles from './GiftCardInfoPage.module.css';
 
 const GiftCardInfoPage = () => {
   const [cardData, setCardData] = useState({
-    name: 'Yamada Tarou',
     memberID: '12345',
     virtualCardID: '686899',
     virtualIssueDate: '22/12/2025',
     virtualStatus: 'Active',
-    physicalID: '6789',
+    physicalID: '6677',
     physicalIssueDate: '22/12/2025',
-    physicalStatus: 'Active',
+    physicalStatus: '22/12/2025',
     balance: '0 VND',
-    pin: '********',
+    pin: '*******',
     expirationDate: '22/12/2027'
   });
 
@@ -42,101 +45,94 @@ const GiftCardInfoPage = () => {
 
   return (
     <div className={styles.container}>
+      <GiftCardHeader title="Gift Card Information" />
+      
       <div className={styles.content}>
-        <h1 className={styles.title}>Gift Card information</h1>
-
-        <div className={styles.formSection}>
-          {/* Name */}
-          <div className={styles.formRow}>
-            <label className={styles.label}>Name:</label>
-            <div className={styles.value}>{cardData.name}</div>
-            <div className={styles.action}></div>
+        <div className={styles.mainGrid}>
+          {/* Left column - Card information */}
+          <div className={styles.infoSection}>
+            <GiftCardInfoRow 
+              label="AEON BETA member ID:" 
+              value={cardData.memberID} 
+            />
+            
+            <GiftCardInfoRow 
+              label="Virtual card ID:" 
+              value={cardData.virtualCardID} 
+            />
+            
+            <GiftCardInfoRow 
+              label="Issue date:" 
+              value={cardData.virtualIssueDate}
+              indent 
+            />
+            
+            <GiftCardInfoRow 
+              label="Status:" 
+              value={cardData.virtualStatus}
+              indent
+              action={
+                <ActionButton variant="yellow" onClick={handleBlockVirtual}>
+                  Block
+                </ActionButton>
+              }
+            />
+            
+            <GiftCardInfoRow 
+              label="Physical ID:" 
+              value={cardData.physicalID} 
+            />
+            
+            <GiftCardInfoRow 
+              label="Issue date:" 
+              value={cardData.physicalIssueDate}
+              indent 
+            />
+            
+            <GiftCardInfoRow 
+              label="Status:" 
+              value={cardData.physicalStatus}
+              indent
+              action={
+                <ActionButton variant="gray" onClick={handleBlockPhysical}>
+                  Block
+                </ActionButton>
+              }
+            />
+            
+            <GiftCardInfoRow 
+              label="Card balance:" 
+              value={cardData.balance}
+              action={
+                <ActionButton variant="yellow" onClick={handleTopUp}>
+                  TOP UP
+                </ActionButton>
+              }
+            />
+            
+            <GiftCardInfoRow 
+              label="PIN:" 
+              value={cardData.pin}
+              action={
+                <ActionButton variant="yellow" onClick={handleChangePIN}>
+                  Change PIN
+                </ActionButton>
+              }
+            />
+            
+            <GiftCardInfoRow 
+              label="Expiration date:" 
+              value={cardData.expirationDate} 
+            />
           </div>
 
-          {/* AEON BETA member ID */}
-          <div className={styles.formRow}>
-            <label className={styles.label}>AEON BETA member ID:</label>
-            <div className={styles.value}>{cardData.memberID}</div>
-            <div className={styles.action}></div>
-          </div>
-
-          {/* Virtual card ID */}
-          <div className={styles.formRow}>
-            <label className={`${styles.label}`}>Virtual card ID:</label>
-            <div className={styles.value}>{cardData.virtualCardID}</div>
-            <div className={styles.action}></div>
-          </div>
-
-          {/* Virtual Issue date */}
-          <div className={styles.formRow}>
-            <label className={`${styles.label} ${styles.indented}`}>Issue date:</label>
-            <div className={styles.value}>{cardData.virtualIssueDate}</div>
-            <div className={styles.action}></div>
-          </div>
-
-          {/* Virtual Status */}
-          <div className={styles.formRow}>
-            <label className={`${styles.label} ${styles.indented}`}>Status:</label>
-            <div className={styles.value}>{cardData.virtualStatus}</div>
-            <div className={styles.action}>
-              <button className={styles.actionButton} onClick={handleBlockVirtual}>
-                Block
-              </button>
-            </div>
-          </div>
-
-          {/* Physical ID */}
-          <div className={styles.formRow}>
-            <label className={`${styles.label}`}>Physical ID:</label>
-            <div className={styles.value}>{cardData.physicalID}</div>
-            <div className={styles.action}></div>
-          </div>
-
-          {/* Physical Issue date */}
-          <div className={styles.formRow}>
-            <label className={`${styles.label} ${styles.indented}`}>Issue date:</label>
-            <div className={styles.value}>{cardData.physicalIssueDate}</div>
-            <div className={styles.action}></div>
-          </div>
-
-          {/* Physical Status */}
-          <div className={styles.formRow}>
-            <label className={`${styles.label} ${styles.indented}`}>Status:</label>
-            <div className={styles.value}>{cardData.physicalStatus}</div>
-            <div className={styles.action}>
-              <button className={styles.actionButton} onClick={handleBlockPhysical}>
-                Block
-              </button>
-            </div>
-          </div>
-
-          {/* Card balance */}
-          <div className={styles.formRow}>
-            <label className={styles.label}>Card balance:</label>
-            <div className={styles.value}>{cardData.balance}</div>
-            <div className={styles.action}>
-              <button className={styles.actionButton} onClick={handleTopUp}>
-                TOP UP
-              </button>
-            </div>
-          </div>
-
-          {/* PIN */}
-          <div className={styles.formRow}>
-            <label className={styles.label}>PIN:</label>
-            <div className={styles.value}>{cardData.pin}</div>
-            <div className={styles.action}>
-              <button className={styles.actionButton} onClick={handleChangePIN}>
-                Change PIN
-              </button>
-            </div>
-          </div>
-
-          {/* Expiration date */}
-          <div className={styles.formRow}>
-            <label className={styles.label}>Expiration date:</label>
-            <div className={styles.value}>{cardData.expirationDate}</div>
-            <div className={styles.action}></div>
+          {/* Right column - Promo card */}
+          <div className={styles.promoSection}>
+            <GiftCardPromoCard 
+              imageSrc="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80"
+              title="Aeon Beta: Experience Cinematic Luxury"
+              description="Welcome to the new era of entertainment at Aeon Beta! With our grand reopening, immerse yourself in crystal-clear imagery..."
+            />
           </div>
         </div>
 
@@ -146,7 +142,7 @@ const GiftCardInfoPage = () => {
             Cancel
           </button>
           <button className={styles.nextButton} onClick={handleNext}>
-            Next
+            Next →
           </button>
         </div>
       </div>
