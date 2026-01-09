@@ -4,6 +4,7 @@
   justify-content: center;
   padding: 4px 8px;
   border-radius: 4px;
+  font-family: 'ABC Diatype', sans-serif;
   font-size: 11px;
   font-weight: 600;
   white-space: nowrap;
@@ -17,7 +18,7 @@
 }
 
 .screenType {
-  background: #1a1a1a;
+  background: #0D0D0D;
   color: white;
   padding: 4px 10px;
 }
@@ -29,7 +30,7 @@
 }
 
 .format {
-  background: #1a1a1a;
+  background: #0D0D0D;
   color: white;
   padding: 3px 6px;
   border-radius: 3px;

@@ -1,12 +1,14 @@
 .showtimeHeader {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   margin-bottom: 12px;
   flex-wrap: wrap;
 }
 
 .screenLabel {
+  font-family: 'ABC Diatype', sans-serif;
   font-size: 13px;
-  color: #666;
+  font-weight: 400;
+  color: #0D0D0D;
 }

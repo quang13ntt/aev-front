@@ -1,17 +1,18 @@
 .theaterBanner {
   position: relative;
-  margin-bottom: 30px;
-  border-radius: 12px;
+  width: 100%;
+  max-width: 375px;
+  height: 213px;
+  margin: 0 auto 32px;
   overflow: hidden;
 }
 
 .theaterImage {
   width: 100%;
-  height: 280px;
-  object-fit: cover;
-  background: linear-gradient(135deg, #2a2a3a 0%, #1a1a2a 100%);
+  height: 100%;
   background-size: cover;
   background-position: center;
+  background: linear-gradient(135deg, #2a2a3a 0%, #1a1a2a 100%);
 }
 
 .theaterTabs {
@@ -21,8 +22,15 @@
   right: 0;
 }
 
-@media (max-width: 768px) {
-  .theaterImage {
-    height: 200px;
+@media (min-width: 768px) {
+  .theaterBanner {
+    max-width: 100%;
+    height: 280px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .theaterBanner {
+    height: 350px;
   }
 }

@@ -3,50 +3,69 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: white;
+  background: #FFFFFF;
   padding: 20px;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(13, 13, 13, 0.1);
 }
 
 .footerContent {
-  max-width: 800px;
+  max-width: 375px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.selectionInfo { flex: 1; }
+.selectionInfo {
+  flex: 1;
+}
 
 .selectionLabel {
-  font-size: 12px;
+  font-size: 13px;
+  font-family: 'ABC Diatype', sans-serif;
+  font-weight: 400;
+  line-height: 17px;
   color: #666;
   margin-bottom: 4px;
 }
 
 .selectedSeats {
   font-size: 16px;
-  font-weight: 600;
-  color: #1a1a1a;
+  font-family: 'ABC Diatype', sans-serif;
+  font-weight: 700;
+  color: #0D0D0D;
 }
 
 .reserveButton {
-  background: #1a1a1a;
+  background: #0D0D0D;
   color: white;
   padding: 14px 40px;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 14px;
+  font-family: 'ABC Diatype', sans-serif;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s;
 }
 
-.reserveButton:hover:not(:disabled) { background: #333; }
+.reserveButton:hover:not(:disabled) {
+  background: #333;
+}
 
-.reserveButton:disabled { background: #ccc; cursor: not-allowed; }
+.reserveButton:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
 
 @media (max-width: 768px) {
-  .footerContent { flex-direction: column; gap: 15px; }
-  .reserveButton { width: 100%; }
+  .footerContent {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .reserveButton {
+    width: 100%;
+  }
 }

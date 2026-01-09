@@ -2,26 +2,92 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: #FFFFFF;
+  font-family: 'ABC Diatype', sans-serif;
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 375px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 16px;
   flex: 1;
+  width: 100%;
 }
 
 .cinemaTitle {
   padding: 30px 0 20px;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 700;
+  line-height: 29px;
+  letter-spacing: -0.015em;
+  color: #0D0D0D;
+  text-align: center;
 }
 
 .moviesContainer {
-  margin-top: 20px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
-@media (max-width: 768px) {
+/* Tablet styles */
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 0 40px;
+  }
+
+  .cinemaTitle {
+    font-size: 32px;
+    padding: 40px 0 30px;
+    line-height: 38px;
+  }
+
+  .moviesContainer {
+    gap: 50px;
+  }
+}
+
+/* Laptop styles */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 900px;
+    padding: 0 60px;
+  }
+
+  .cinemaTitle {
+    font-size: 32px;
+    padding: 50px 0 40px;
+    line-height: 38px;
+  }
+
+  .moviesContainer {
+    gap: 50px;
+    margin-top: 50px;
+  }
+}
+
+/* Large laptop/desktop styles */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1000px;
+    padding: 0 80px;
+  }
+
+  .cinemaTitle {
+    font-size: 36px;
+    padding: 60px 0 50px;
+    line-height: 43px;
+  }
+
+  .moviesContainer {
+    gap: 60px;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 767px) {
   .container {
     padding: 0 20px;
   }

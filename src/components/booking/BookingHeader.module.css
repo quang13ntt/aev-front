@@ -2,6 +2,7 @@
   background: linear-gradient(135deg, #7C7CFF 0%, #6B6BFF 100%);
   color: white;
   padding: 20px;
+  font-family: 'ABC Diatype', sans-serif;
 }
 
 .backButton {
@@ -11,11 +12,15 @@
   display: inline-block;
 }
 
-.backButton:hover { opacity: 0.8; }
+.backButton:hover {
+  opacity: 0.8;
+}
 
 .movieTitle {
   font-size: 24px;
   font-weight: 700;
+  line-height: 29px;
+  letter-spacing: -0.015em;
   margin-bottom: 8px;
   display: flex;
   align-items: center;
@@ -28,24 +33,46 @@
   border-radius: 4px;
   font-size: 12px;
   font-weight: 600;
+  font-family: 'ABC Diatype', sans-serif;
 }
 
-.cinemaInfo { font-size: 14px; margin-bottom: 4px; opacity: 0.95; }
-.screenInfo { font-size: 14px; margin-bottom: 12px; opacity: 0.9; }
+.cinemaInfo {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  margin-bottom: 4px;
+  opacity: 0.95;
+  font-family: 'ABC Diatype', sans-serif;
+}
+
+.screenInfo {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  margin-bottom: 12px;
+  opacity: 0.9;
+  font-family: 'ABC Diatype', sans-serif;
+}
 
 .datetimeRow {
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 14px;
+  font-family: 'ABC Diatype', sans-serif;
 }
 
-.datetime { display: flex; align-items: center; gap: 15px; }
+.datetime {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 
 .changeTime {
   color: white;
   text-decoration: underline;
   cursor: pointer;
+  font-family: 'ABC Diatype', sans-serif;
 }
 
 .changeTime:hover { opacity: 0.8; }

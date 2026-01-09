@@ -1,9 +1,10 @@
 .movieCard {
-  background: white;
-  border-radius: 12px;
+  background: #FFFFFF;
+  border-radius: 0;
   padding: 25px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin-bottom: 0;
+  box-shadow: none;
+  border-bottom: 1px solid rgba(13, 13, 13, 0.1);
 }
 
 @media (max-width: 768px) {

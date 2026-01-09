@@ -4,6 +4,7 @@
 
 .tab {
   padding: 12px 20px;
+  font-family: 'ABC Diatype', sans-serif;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -13,12 +14,12 @@
 }
 
 .tab:hover {
-  color: #1a1a1a;
+  color: #0D0D0D;
 }
 
 .tab.active {
-  color: #1a1a1a;
-  border-bottom-color: #1a1a1a;
+  color: #0D0D0D;
+  border-bottom-color: #0D0D0D;
 }
 
 /* Section variant */
