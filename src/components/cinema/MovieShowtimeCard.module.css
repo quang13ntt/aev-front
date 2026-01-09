@@ -1,0 +1,138 @@
+.card {
+  display: flex;
+  gap: 24px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.movieInfo {
+  display: flex;
+  gap: 16px;
+  min-width: 250px;
+}
+
+.poster {
+  width: 80px;
+  height: 112px;
+  background: linear-gradient(135deg, #E3E3E3 0%, #C4C4C4 100%);
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.title {
+  font-family: 'ABC Diatype', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  color: #0D0D0D;
+  margin: 0;
+}
+
+.meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.format,
+.ageRating {
+  padding: 4px 8px;
+  background: #F2F2F2;
+  border-radius: 4px;
+  font-family: 'ABC Diatype', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0D0D0D;
+}
+
+.showtimes {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  flex: 1;
+}
+
+.showtimeBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 16px;
+  background: #F2F2F2;
+  border: 1px solid #E3E3E3;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 140px;
+}
+
+.showtimeBtn:hover {
+  background: #E3E3E3;
+  border-color: #0D0D0D;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.showtimeBtn:active {
+  transform: translateY(0);
+}
+
+.time {
+  font-family: 'ABC Diatype', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  color: #0D0D0D;
+  margin-bottom: 8px;
+}
+
+.theaterInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: #666;
+}
+
+.theater {
+  font-family: 'ABC Diatype', sans-serif;
+  font-weight: 400;
+}
+
+.seats {
+  font-size: 11px;
+  color: #999;
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+  }
+
+  .movieInfo {
+    min-width: auto;
+  }
+
+  .showtimes {
+    justify-content: flex-start;
+  }
+
+  .showtimeBtn {
+    min-width: 120px;
+  }
+}

@@ -1,0 +1,197 @@
+.container {
+  min-height: 100vh;
+  background: #FFFFFF;
+  padding: 48px 24px;
+  font-family: 'ABC Diatype', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: 'ABC Diatype';
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+  letter-spacing: -0.015em;
+  color: #0D0D0D;
+  margin: 0 0 48px 0;
+}
+
+.formSection {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 64px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  align-items: center;
+  gap: 48px;
+}
+
+.label {
+  font-family: 'ABC Diatype';
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 20px;
+  color: #0D0D0D;
+  text-align: left;
+}
+
+.value {
+  font-family: 'ABC Diatype';
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  color: #0D0D0D;
+}
+
+.valueWithButton {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.actionButton {
+  padding: 8px 24px;
+  background: #D9D9D9;
+  border: 1px solid #999;
+  border-radius: 4px;
+  font-family: 'ABC Diatype';
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  color: #0D0D0D;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 120px;
+}
+
+.actionButton:hover {
+  background: #C4C4C4;
+  border-color: #0D0D0D;
+}
+
+.actionButton:active {
+  transform: scale(0.98);
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.cancelButton,
+.nextButton {
+  padding: 12px 48px;
+  font-family: 'ABC Diatype';
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 140px;
+}
+
+.cancelButton {
+  background: #FFFFFF;
+  border: 2px solid #0D0D0D;
+  color: #0D0D0D;
+}
+
+.cancelButton:hover {
+  background: #F2F2F2;
+}
+
+.nextButton {
+  background: #FFFFFF;
+  border: 2px solid #0D0D0D;
+  color: #0D0D0D;
+}
+
+.nextButton:hover {
+  background: #0D0D0D;
+  color: #FFFFFF;
+}
+
+.cancelButton:active,
+.nextButton:active {
+  transform: scale(0.98);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 24px 16px;
+  }
+
+  .title {
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom: 32px;
+  }
+
+  .formSection {
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .label {
+    font-size: 15px;
+  }
+
+  .value {
+    font-size: 15px;
+  }
+
+  .valueWithButton {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .actionButton {
+    width: 100%;
+  }
+
+  .buttonGroup {
+    flex-direction: column-reverse;
+    gap: 16px;
+  }
+
+  .cancelButton,
+  .nextButton {
+    width: 100%;
+    padding: 12px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .formRow {
+    gap: 8px;
+  }
+
+  .label,
+  .value {
+    font-size: 14px;
+  }
+
+  .actionButton {
+    font-size: 14px;
+    padding: 8px 16px;
+    min-width: 100px;
+  }
+}
