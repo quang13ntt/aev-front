@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import TicketHeader from '../components/ticket/TicketHeader';
+import TabButton from '../components/ticket/TabButton';
+import MovieShowtimeCard from '../components/ticket/MovieShowtimeCard';
+import UserSidebar from '../components/ticket/UserSidebar';
+import BottomNav from '../components/ticket/BottomNav';
 import styles from './TicketPurchasePage.module.css';
 
 const TicketPurchasePage = () => {
-  const [activeTab, setActiveTab] = useState('phim');
-  const [selectedDate, setSelectedDate] = useState(0);
+  const [activeTab, setActiveTab] = useState('tickets');
 
   const movies = [
     {
@@ -19,32 +23,32 @@ const TicketPurchasePage = () => {
     },
     {
       id: 2,
-      title: 'ELITO',
+      title: '28 Year later',
       format: '2D',
-      ageRating: 'P',
+      ageRating: 'T13',
       showtimes: [
         { time: '11:00 - 13:00', theater: 'Rạp 2', seats: '39/120' }
       ]
     },
     {
       id: 3,
-      title: 'Doraemon t..',
+      title: 'ELITO',
       format: '2D',
       ageRating: 'P',
       showtimes: [
-        { time: '15:45 - 17:45', theater: 'Rạp 3', seats: '39/120' },
+        { time: '11:00 - 17:00', theater: 'Rạp 2', seats: '39/120' },
         { time: '15:45 - 17:45', theater: 'Rạp 3', seats: '39/120' }
       ]
     },
     {
       id: 4,
-      title: 'How to train..',
+      title: 'How emon t..',
       format: '2D',
       ageRating: 'P',
       showtimes: [
-        { time: '15:45 - 17:45', theater: 'Rạp 5', seats: '39/120' },
-        { time: '15:45 - 17:45', theater: 'Rạp 5', seats: '39/120' },
-        { time: '15:45 - 17:45', theater: 'Rạp 5', seats: '39/120' }
+        { time: '15:45 - 17:45', theater: 'Rạp 3', seats: '39/120' },
+        { time: '15:45 - 17:45', theater: 'Rạp 3', seats: '39/120' },
+        { time: '15:45 - 17:45', theater: 'Rạp 3', seats: '39/120' }
       ]
     },
     {
@@ -54,56 +58,54 @@ const TicketPurchasePage = () => {
       ageRating: 'T16',
       showtimes: [
         { time: '15:45 - 17:45', theater: 'Rạp 1', seats: '39/120' },
-        { time: '15:45 - 17:45', theater: 'Rạp 1', seats: '39/120' },
-        { time: '15:45 - 17:45', theater: 'Rạp 1', seats: '39/120' }
+        { time: '15:45 - 17:45', theater: 'Rạp 2', seats: '39/120' },
+        { time: '15:45 - 17:45', theater: 'Rạp 2', seats: '39/120' }
       ]
     }
   ];
 
-  const dates = [
-    { month: 'JUL', day: '16', weekday: 'Tue' },
-    { month: 'JUL', day: '17', weekday: 'Wed' },
-    { month: 'JUL', day: '18', weekday: 'Thu' },
-    { month: 'JUL', day: '19', weekday: 'Fri' },
-    { month: 'JUL', day: '20', weekday: 'Sat' }
-  ];
+  const handleShowtimeClick = (movie, showtime) => {
+    console.log('Selected:', movie.title, showtime.time);
+  };
+
+  const handleAddGiftCard = () => {
+    console.log('Add gift card clicked');
+  };
 
   return (
     <div className={styles.container}>
-      {/* Header */}
-      <header className={styles.header}>
-        <div className={styles.headerLeft}>
-          <button className={styles.ticketButton}>
-            <span>Mua vé</span>
-            <span className={styles.date}>16 Jul 2025</span>
-          </button>
-          <button className={styles.fbButton}>F&B/Quà lưu niệm</button>
-        </div>
-        
-        <div className={styles.headerRight}>
-          <div className={styles.balance}>
-            <span>Tiền mặt: 1.000.000 đ</span>
-          </div>
-          <div className={styles.credit}>
-            <span>Credit/debit: 0 đ</span>
-          </div>
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <div className={styles.mainContent}>
+      <TicketHeader title="Suất chiếu hôm nay" />
+      
+      <div className={styles.mainLayout}>
         <div className={styles.contentArea}>
-          {/* Tabs */}
-          <div className={styles.tabs}>
+          {/* Tab Buttons */}
+          <div className={styles.tabBar}>
+            <TabButton 
+              active={activeTab === 'tickets'} 
+              onClick={() => setActiveTab('tickets')}
+              variant="green"
+              subtitle="16 Jul 2025"
+            >
+              Mua vé
+            </TabButton>
+            <TabButton 
+              active={activeTab === 'fb'} 
+              onClick={() => setActiveTab('fb')}
+              variant="beige"
+            >
+              F&B/Quà lưu niệm
+            </TabButton>
+          </div>
+
+          {/* Content Tabs */}
+          <div className={styles.contentTabs}>
             <button 
-              className={`${styles.tab} ${activeTab === 'phim' ? styles.active : ''}`}
-              onClick={() => setActiveTab('phim')}
+              className={`${styles.contentTab} ${styles.active}`}
             >
               Phim
             </button>
             <button 
-              className={`${styles.tab} ${activeTab === 'suatchieu' ? styles.active : ''}`}
-              onClick={() => setActiveTab('suatchieu')}
+              className={styles.contentTab}
             >
               Suất chiếu
             </button>
@@ -112,61 +114,24 @@ const TicketPurchasePage = () => {
           {/* Movie List */}
           <div className={styles.movieList}>
             {movies.map(movie => (
-              <div key={movie.id} className={styles.movieRow}>
-                <div className={styles.movieInfo}>
-                  <div className={styles.moviePoster}></div>
-                  <div className={styles.movieDetails}>
-                    <h3 className={styles.movieTitle}>{movie.title}</h3>
-                    <div className={styles.movieMeta}>
-                      <span className={styles.format}>{movie.format}</span>
-                      <span className={styles.ageRating}>{movie.ageRating}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className={styles.showtimes}>
-                  {movie.showtimes.map((showtime, idx) => (
-                    <button key={idx} className={styles.showtimeButton}>
-                      <div className={styles.time}>{showtime.time}</div>
-                      <div className={styles.theaterInfo}>
-                        <span>{showtime.theater}</span>
-                        <span className={styles.seats}>{showtime.seats}</span>
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </div>
+              <MovieShowtimeCard 
+                key={movie.id}
+                movie={movie}
+                onShowtimeClick={handleShowtimeClick}
+              />
             ))}
           </div>
         </div>
 
         {/* Sidebar */}
-        <aside className={styles.sidebar}>
-          <div className={styles.sidebarHeader}>
-            <span className={styles.userName}>Yamada Tarou</span>
-            <button className={styles.addGiftCard}>Add Gift card</button>
-          </div>
-          <div className={styles.sidebarContent}>
-            {/* Empty space for future content */}
-          </div>
-        </aside>
+        <UserSidebar 
+          userName="Yamada Tarou"
+          onAddGiftCard={handleAddGiftCard}
+        />
       </div>
 
       {/* Bottom Navigation */}
-      <nav className={styles.bottomNav}>
-        <button className={styles.navButton}>
-          <div className={styles.navIcon}></div>
-          <span>Trang chủ</span>
-        </button>
-        <button className={styles.navButton}>
-          <div className={styles.navIcon}></div>
-          <span>Túy chỉnh</span>
-        </button>
-        <button className={styles.navButton}>
-          <div className={styles.navIcon}></div>
-          <span>Đăng xuất</span>
-        </button>
-      </nav>
+      <BottomNav activeItem="home" />
     </div>
   );
 };
