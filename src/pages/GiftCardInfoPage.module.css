@@ -23,15 +23,15 @@
 .formSection {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 24px;
   margin-bottom: 64px;
 }
 
 .formRow {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 240px 200px 140px;
   align-items: center;
-  gap: 48px;
+  gap: 32px;
 }
 
 .label {
@@ -43,6 +43,10 @@
   text-align: left;
 }
 
+.label.indented {
+  padding-left: 40px;
+}
+
 .value {
   font-family: 'ABC Diatype';
   font-weight: 400;
@@ -51,10 +55,10 @@
   color: #0D0D0D;
 }
 
-.valueWithButton {
+.action {
   display: flex;
   align-items: center;
-  gap: 24px;
+  justify-content: flex-start;
 }
 
 .actionButton {
@@ -147,6 +151,14 @@
   .formRow {
     grid-template-columns: 1fr;
     gap: 12px;
+  }
+
+  .label.indented {
+    padding-left: 20px;
+  }
+
+  .action {
+    margin-top: 8px;
   }
 
   .label {
