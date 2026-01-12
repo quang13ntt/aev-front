@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Showtimes & Gift Card</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=ABC+Diatype:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --text: #0d0d0d;
+      --surface: #ffffff;
+      --panel: #d9d9d9;
+      --chip: #ededed;
+      --accent: #f7a7f2;
+      --muted: #6a6a6a;
+      --spacing-lg: 24px;
+      --spacing-md: 16px;
+      --spacing-sm: 10px;
+      --radius: 12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'ABC Diatype', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--surface);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .page {
+      max-width: 1140px;
+      margin: 20px auto 96px;
+      padding: 0 var(--spacing-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+    }
+
+    /* Top controls */
+    .top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-sm);
+      align-items: center;
+    }
+
+    .pill-group {
+      display: flex;
+      gap: var(--spacing-sm);
+      align-items: center;
+    }
+
+    .mua-ve-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 16px;
+      border: 2px solid #0d0d0d;
+      border-radius: 14px;
+      background: var(--surface);
+    }
+
+    .mua-ve-text {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text);
+    }
+
+    .date-text {
+      font-weight: 400;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 16px;
+      border: 2px solid #0d0d0d;
+      border-radius: 14px;
+      background: var(--surface);
+      font-weight: 700;
+      font-size: 15px;
+      white-space: nowrap;
+    }
+
+    .pill.secondary {
+      border-color: #b8b8b8;
+      color: var(--muted);
+      font-weight: 400;
+      font-size: 13px;
+      padding: 10px 14px;
+    }
+
+    /* Layout */
+    .content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: var(--spacing-lg);
+      min-height: 520px;
+    }
+
+    .main-panel {
+      background: #f2f2f2;
+      border-radius: var(--radius);
+      padding: var(--spacing-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    .header-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 8px;
+      padding-bottom: 8px;
+    }
+
+    .movie-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--spacing-md);
+      align-items: start;
+      padding: 12px 0;
+      border-bottom: 1px solid #e3e3e3;
+    }
+
+    .movie-row:last-child {
+      border-bottom: none;
+    }
+
+    .poster-container {
+      display: flex;
+      gap: 12px;
+      background: var(--surface);
+      padding: 12px;
+      border-radius: 8px;
+      align-items: center;
+    }
+
+    .poster {
+      width: 80px;
+      height: 56px;
+      border-radius: 6px;
+      background: var(--panel);
+      flex-shrink: 0;
+    }
+
+    .movie-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 140px;
+    }
+
+    .movie-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .title-line { font-size: 15px; font-weight: 700; }
+    .sub-line { font-size: 15px; font-weight: 400; }
+    .badge-line { font-size: 15px; font-weight: 700; }
+
+    .showtimes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-sm);
+    }
+
+    .slot {
+      background: var(--panel);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.4;
+      width: 140px;
+      flex-shrink: 0;
+    }
+
+    .slot .room { display: block; font-weight: 400; font-size: 13px; margin-top: 2px; }
+
+    /* Sidebar */
+    .sidebar {
+      background: var(--panel);
+      border-radius: 18px;
+      padding: var(--spacing-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+      min-height: 520px;
+    }
+
+    .sidebar h3 { font-size: 15px; font-weight: 700; }
+
+    .btn-accent {
+      align-self: flex-start;
+      background: var(--accent);
+      color: #0d0d0d;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* Bottom nav */
+    .bottom-nav {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #d9d9d9;
+      border-top: 1px solid #c7c7c7;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 10px 16px 14px;
+      gap: var(--spacing-sm);
+      align-items: center;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .nav-dot {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #bfbfbf;
+      border: 2px solid #8c8c8c;
+    }
+
+    .nav-item.inactive .nav-dot {
+      background: #b3b3b3;
+      border-color: #b3b3b3;
+    }
+
+    .nav-item.inactive { color: #5c5c5c; font-weight: 400; }
+
+    @media (max-width: 960px) {
+      .content { grid-template-columns: 1fr; }
+      .sidebar { min-height: auto; }
+      .page { margin-bottom: 140px; }
+      .movie-row { grid-template-columns: 1fr; }
+      .poster-container { flex-direction: column; }
+      .showtimes { margin-top: var(--spacing-sm); }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="top-bar">
+      <div class="mua-ve-container">
+        <span class="mua-ve-text">Mua vé</span>
+        <span class="date-text">16 Jul 2025</span>
+      </div>
+      <button class="pill" type="button">F&B/Quà lưu niệm</button>
+      <button class="pill" type="button">Tiền mặt: 1.000.000 đ</button>
+      <button class="pill" type="button">Credit/debit: 0 đ</button>
+    </div>
+
+    <div class="content">
+      <div class="main-panel">
+        <div class="header-row">
+          <div>Phim</div>
+          <div>Suất chiếu</div>
+        </div>
+
+        <!-- Row 1 -->
+        <div class="movie-row">
+          <div class="poster-container">
+            <div class="poster"></div>
+            <div class="movie-meta">
+              <div class="title-line">28 Year later</div>
+              <div class="movie-info">
+                <div class="sub-line">2D</div>
+                <div class="badge-line">T13</div>
+              </div>
+            </div>
+          </div>
+          <div class="showtimes">
+            <div class="slot">15:45 - 17:45 <span class="room">Rạp 1 39/120</span></div>
+            <div class="slot">18:00 - 20:00 <span class="room">Rạp 1 39/120</span></div>
+            <div class="slot">20:30 - 22:30 <span class="room">Rạp 1 39/120</span></div>
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="movie-row">
+          <div class="poster-container">
+            <div class="poster"></div>
+            <div class="movie-meta">
+              <div class="title-line">ELITO</div>
+              <div class="movie-info">
+                <div class="sub-line">2D</div>
+                <div class="badge-line">P</div>
+              </div>
+            </div>
+          </div>
+          <div class="showtimes">
+            <div class="slot">11:00 - 13:00 <span class="room">Rạp 2 39/120</span></div>
+          </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="movie-row">
+          <div class="poster-container">
+            <div class="poster"></div>
+            <div class="movie-meta">
+              <div class="title-line">Doraemon t..</div>
+              <div class="movie-info">
+                <div class="sub-line">2D</div>
+                <div class="badge-line">P</div>
+              </div>
+            </div>
+          </div>
+          <div class="showtimes">
+            <div class="slot">15:45 - 17:45 <span class="room">Rạp 3 39/120</span></div>
+            <div class="slot">15:45 - 17:45 <span class="room">Rạp 3 39/120</span></div>
+          </div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="movie-row">
+          <div class="poster-container">
+            <div class="poster"></div>
+            <div class="movie-meta">
+              <div class="title-line">How to train..</div>
+              <div class="movie-info">
+                <div class="sub-line">2D</div>
+                <div class="badge-line">P</div>
+              </div>
+            </div>
+          </div>
+          <div class="showtimes">
+            <div class="slot">15:45 - 17:45 <span class="room">Rạp 5 39/120</span></div>
+            <div class="slot">15:45 - 17:45 <span class="room">Rạp 5 39/120</span></div>
+            <div class="slot">15:45 - 17:45 <span class="room">Rạp 5 39/120</span></div>
+          </div>
+        </div>
+
+        <!-- Row 5 -->
+        <div class="movie-row">
+          <div class="poster-container">
+            <div class="poster"></div>
+            <div class="movie-meta">
+              <div class="title-line">Thám tử Kiên</div>
+              <div class="movie-info">
+                <div class="sub-line">2D</div>
+                <div class="badge-line">T16</div>
+              </div>
+            </div>
+          </div>
+          <div class="showtimes">
+            <div class="slot">15:45 - 17:45 <span class="room">Rạp 1 39/120</span></div>
+            <div class="slot">15:45 - 17:45 <span class="room">Rạp 1 39/120</span></div>
+            <div class="slot">15:45 - 17:45 <span class="room">Rạp 1 39/120</span></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="sidebar">
+        <h3>Yamada Tarou</h3>
+        <button class="btn-accent" type="button">Add Gift card</button>
+      </aside>
+    </div>
+  </div>
+
+  <nav class="bottom-nav" aria-label="Navigation">
+    <div class="nav-item">
+      <div class="nav-dot"></div>
+      <div>Trang chủ</div>
+    </div>
+    <div class="nav-item inactive">
+      <div class="nav-dot"></div>
+      <div>Tùy chỉnh</div>
+    </div>
+    <div class="nav-item inactive">
+      <div class="nav-dot"></div>
+      <div>Đăng xuất</div>
+    </div>
+  </nav>
+</body>
+</html>

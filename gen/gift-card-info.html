@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gift Card Information</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=ABC+Diatype:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --text-primary: #0d0d0d;
+      --surface: #ffffff;
+      --muted: #e3e3e3;
+      --button: #d9d9d9;
+      --spacing-lg: 32px;
+      --spacing-md: 24px;
+      --spacing-sm: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'ABC Diatype', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--surface);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 56px auto 72px;
+      padding: 0 var(--spacing-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 220px 1fr auto;
+      gap: var(--spacing-md) var(--spacing-lg);
+      align-items: center;
+    }
+
+    .label {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .label.indent {
+      padding-left: 24px;
+    }
+
+    .value {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .value.muted {
+      font-weight: 400;
+    }
+
+    .actions {
+      display: flex;
+      gap: var(--spacing-sm);
+    }
+
+    .pill-button {
+      border: none;
+      background: var(--button);
+      color: #000000;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 10px 16px;
+      min-width: 112px;
+      cursor: pointer;
+      transition: filter 160ms ease;
+    }
+
+    .pill-button:hover {
+      filter: brightness(0.92);
+    }
+
+    .footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: var(--spacing-sm);
+      margin-top: 20px;
+    }
+
+    .footer .pill-button {
+      min-width: 140px;
+      font-size: 16px;
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        margin: 36px auto 48px;
+        padding: 0 var(--spacing-md);
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+
+      .actions {
+        justify-content: flex-start;
+      }
+
+      .footer {
+        justify-content: space-between;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1>Gift Card information</h1>
+
+    <section class="info-grid" aria-label="Gift card details">
+      <div class="label">Name:</div>
+      <div class="value">Yamada Tarou</div>
+      <div></div>
+
+      <div class="label">AEON BETA member ID:</div>
+      <div class="value">12345</div>
+      <div></div>
+
+      <div class="label">Virtual card ID:</div>
+      <div class="value">686899</div>
+      <div></div>
+
+      <div class="label indent">Issue date:</div>
+      <div class="value muted">22/12/2025</div>
+      <div></div>
+
+      <div class="label indent">Status:</div>
+      <div class="value">Active</div>
+      <div class="actions">
+        <button class="pill-button" type="button">Block</button>
+      </div>
+
+      <div class="label">Physical ID:</div>
+      <div class="value">6789</div>
+      <div></div>
+
+      <div class="label indent">Issue date:</div>
+      <div class="value muted">22/12/2025</div>
+      <div></div>
+
+      <div class="label indent">Status:</div>
+      <div class="value">Active</div>
+      <div class="actions">
+        <button class="pill-button" type="button">Block</button>
+      </div>
+
+      <div class="label">Card balance:</div>
+      <div class="value">0 VND</div>
+      <div class="actions">
+        <button class="pill-button" type="button">TOP UP</button>
+      </div>
+
+      <div class="label">PIN:</div>
+      <div class="value">*********</div>
+      <div class="actions">
+        <button class="pill-button" type="button">Change PIN</button>
+      </div>
+
+      <div class="label">Expiration date:</div>
+      <div class="value muted">22/12/2027</div>
+      <div></div>
+    </section>
+
+    <div class="footer">
+      <button class="pill-button" type="button">Cancel</button>
+      <button class="pill-button" type="button">Next</button>
+    </div>
+  </main>
+</body>
+</html>
