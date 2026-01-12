@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=ABC+Diatype:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      /* AEV Brand Colors */
+      /* AEV Brand Colors - From extracted-css-components.md */
       --black-900: #0D0D0D;
       --white: #FFFFFF;
       --white-smoke: #F2F2F2;
@@ -18,21 +18,23 @@
       --purple: #707EFA;
       --lemon: #CEFA69;
       --red: #FA6E66;
-      --muted: #6a6a6a;
+      --opacity-black-60: rgba(13, 13, 13, 0.6);
+      --opacity-white-60: rgba(255, 255, 255, 0.6);
       
-      /* Spacing */
-      --spacing-xs: 4px;
-      --spacing-sm: 8px;
-      --spacing-md: 16px;
-      --spacing-lg: 24px;
-      --spacing-xl: 32px;
-      --spacing-2xl: 40px;
+      /* Spacing System - From extracted-css-components.md */
+      --spacing-4: 4px;
+      --spacing-8: 8px;
+      --spacing-12: 12px;
+      --spacing-14: 14px;
+      --spacing-16: 16px;
+      --spacing-24: 24px;
+      --spacing-32: 32px;
+      --spacing-40: 40px;
+      --spacing-48: 48px;
       
-      /* Border Radius */
-      --radius-sm: 6px;
-      --radius-md: 8px;
-      --radius-lg: 12px;
-      --radius-xl: 18px;
+      /* Border Radius - From extracted-css-components.md */
+      --radius-sharp: 0px;        /* ALL elements except circular */
+      --radius-circular: 9999px;  /* Only profile pictures, icon buttons */
     }
 
     * {
@@ -51,14 +53,14 @@
 
     .page {
       max-width: 980px;
-      margin: var(--spacing-2xl) auto;
-      padding: var(--spacing-xl);
+      margin: var(--spacing-40) auto;
+      padding: var(--spacing-32);
       background: var(--white-smoke);
-      border-radius: var(--radius-xl);
+      border-radius: var(--radius-sharp);
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
       display: flex;
       flex-direction: column;
-      gap: var(--spacing-xl);
+      gap: var(--spacing-32);
     }
 
     h1 {
@@ -69,17 +71,17 @@
       color: var(--black-900);
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: var(--spacing-12);
     }
 
     .info-grid {
       display: grid;
       grid-template-columns: 220px 1fr auto;
-      gap: var(--spacing-lg) var(--spacing-xl);
+      gap: var(--spacing-24) var(--spacing-32);
       align-items: center;
       background: var(--white);
-      padding: var(--spacing-xl);
-      border-radius: var(--radius-lg);
+      padding: var(--spacing-32);
+      border-radius: var(--radius-sharp);
       box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
     }
 
@@ -91,10 +93,10 @@
     }
 
     .label.indent {
-      padding-left: var(--spacing-lg);
+      padding-left: var(--spacing-24);
       font-size: 13px;
       line-height: 17px;
-      color: var(--muted);
+      color: var(--opacity-black-60);
     }
 
     .value {
@@ -106,18 +108,18 @@
 
     .value.muted {
       font-weight: 400;
-      color: var(--muted);
+      color: var(--opacity-black-60);
     }
 
     .value.highlight {
-      color: var(--pink);
+      color: var(--black-900);
       font-size: 18px;
       line-height: 22px;
     }
 
     .actions {
       display: flex;
-      gap: var(--spacing-sm);
+      gap: var(--spacing-8);
     }
 
     .pill-button {
@@ -129,7 +131,7 @@
       line-height: 18px;
       padding: 11px 18px;
       min-width: 112px;
-      border-radius: 14px;
+      border-radius: var(--radius-sharp);
       cursor: pointer;
       transition: all 0.2s ease;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -142,34 +144,24 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
     }
 
-    .pill-button.primary {
-      background: var(--pink);
-      border-color: var(--pink);
+    .pill-button.reverse {
+      background: var(--black-900);
+      color: var(--white);
+      border-color: var(--black-900);
+    }
+
+    .pill-button.reverse:hover {
+      background: var(--white);
       color: var(--black-900);
-    }
-
-    .pill-button.primary:hover {
-      background: var(--purple);
-      border-color: var(--purple);
-      color: var(--white);
-    }
-
-    .pill-button.danger {
-      border-color: var(--red);
-      color: var(--red);
-    }
-
-    .pill-button.danger:hover {
-      background: var(--red);
-      color: var(--white);
+      border-color: var(--black-900);
     }
 
     .footer {
       display: flex;
       justify-content: flex-end;
-      gap: var(--spacing-md);
-      margin-top: var(--spacing-lg);
-      padding-top: var(--spacing-lg);
+      gap: var(--spacing-16);
+      margin-top: var(--spacing-24);
+      padding-top: var(--spacing-24);
       border-top: 2px solid var(--black-100);
     }
 
@@ -181,8 +173,8 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 4px 12px;
-      border-radius: var(--radius-sm);
+      padding: var(--spacing-4) var(--spacing-12);
+      border-radius: var(--radius-sharp);
       font-size: 13px;
       font-weight: 700;
       line-height: 17px;
@@ -200,15 +192,15 @@
 
     @media (max-width: 720px) {
       .page {
-        margin: var(--spacing-lg) var(--spacing-md);
-        padding: var(--spacing-lg);
+        margin: var(--spacing-24) var(--spacing-16);
+        padding: var(--spacing-24);
       }
 
       .info-grid {
         grid-template-columns: 1fr;
         align-items: start;
-        padding: var(--spacing-lg);
-        gap: var(--spacing-md);
+        padding: var(--spacing-24);
+        gap: var(--spacing-16);
       }
 
       .actions {
@@ -229,65 +221,65 @@
 </head>
 <body>
   <main class="page">
-    <h1>💳 Gift Card Information</h1>
+    <h1> Gift Card Information</h1>
 
     <section class="info-grid" aria-label="Gift card details">
-      <div class="label">👤 Name:</div>
+      <div class="label"> Name:</div>
       <div class="value">Yamada Tarou</div>
       <div></div>
 
-      <div class="label">🎫 AEON BETA Member ID:</div>
+      <div class="label"> AEON BETA Member ID:</div>
       <div class="value">12345</div>
       <div></div>
 
-      <div class="label">📱 Virtual Card ID:</div>
+      <div class="label"> Virtual Card ID:</div>
       <div class="value">686899</div>
       <div></div>
 
-      <div class="label indent">📅 Issue date:</div>
+      <div class="label indent"> Issue date:</div>
       <div class="value muted">22/12/2025</div>
       <div></div>
 
       <div class="label indent">Status:</div>
-      <div class="value"><span class="status-badge active">✓ Active</span></div>
+      <div class="value"><span class="status-badge active"> Active</span></div>
       <div class="actions">
-        <button class="pill-button danger" type="button">🚫 Block</button>
+        <button class="pill-button" type="button">Block</button>
       </div>
 
-      <div class="label">💳 Physical Card ID:</div>
+      <div class="label"> Physical Card ID:</div>
       <div class="value">6789</div>
       <div></div>
 
-      <div class="label indent">📅 Issue date:</div>
+      <div class="label indent"> Issue date:</div>
       <div class="value muted">22/12/2025</div>
       <div></div>
 
       <div class="label indent">Status:</div>
-      <div class="value"><span class="status-badge active">✓ Active</span></div>
+      <div class="value"><span class="status-badge active"> Active</span></div>
       <div class="actions">
-        <button class="pill-button danger" type="button">🚫 Block</button>
+        <button class="pill-button danger" type="button"> Block</button>
       </div>
 
-      <div class="label">💰 Card Balance:</div>
+      <div class="label"> Card Balance:</div>
       <div class="value highlight">500.000 VND</div>
       <div class="actions">
-        <button class="pill-button primary" type="button">➕ Top Up</button>
+        <button class="pill-button" type="button">Top Up</button>
       </div>
 
-      <div class="label">🔒 PIN:</div>
+      <div class="label"> PIN:</div>
       <div class="value">••••••••</div>
       <div class="actions">
-        <button class="pill-button" type="button">🔑 Change PIN</button>
+        <button class="pill-button" type="button">Change PIN</button>
       </div>
 
-      <div class="label">⏰ Expiration Date:</div>
+      <div class="label"> Expiration Date:</div>
       <div class="value muted">22/12/2027</div>
       <div></div>
     </section>
 
     <div class="footer">
-      <button class="pill-button" type="button">← Cancel</button>
-      <button class="pill-button primary" type="button">Next →</button>
+      <button class="pill-button" type="button">Cancel</button>
+      <button class="pill-button reverse" type="button">Next</button>
     </div>
   </main>
 </body>

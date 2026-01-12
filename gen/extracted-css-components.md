@@ -633,11 +633,14 @@ opacity: 0.2;
 ## Border Radius
 
 ```css
-/* Circular elements (profile, buttons) */
+/* ALL elements use sharp corners (0px) */
+border-radius: 0px;
+
+/* EXCEPTION: Only truly circular elements (profile pictures, icon buttons) */
 border-radius: 9999px;
 
-/* Standard buttons/cards */
-border-radius: 4px - 8px; /* (inferred from design system)
+/* Note: Badges, buttons, cards, containers - ALL use sharp corners (0px) */
+/* This is a core design principle of the AEV brand */
 ```
 
 ## Notes
