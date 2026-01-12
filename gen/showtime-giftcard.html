@@ -8,24 +8,39 @@
   <link href="https://fonts.googleapis.com/css2?family=ABC+Diatype:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --text: #0d0d0d;
-      --surface: #ffffff;
-      --panel: #d9d9d9;
-      --chip: #ededed;
-      --accent: #f7a7f2;
+      /* AEV Brand Colors */
+      --black-900: #0D0D0D;
+      --white: #FFFFFF;
+      --white-smoke: #F2F2F2;
+      --black-100: #E3E3E3;
+      --pink: #E476FA;
+      --blue: #73E5EA;
+      --purple: #707EFA;
+      --lemon: #CEFA69;
+      --red: #FA6E66;
       --muted: #6a6a6a;
-      --spacing-lg: 24px;
+      
+      /* Spacing */
+      --spacing-xs: 4px;
+      --spacing-sm: 8px;
       --spacing-md: 16px;
-      --spacing-sm: 10px;
-      --radius: 12px;
+      --spacing-lg: 24px;
+      --spacing-xl: 32px;
+      --spacing-2xl: 40px;
+      
+      /* Border Radius */
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 18px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'ABC Diatype', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--surface);
-      color: var(--text);
+      background: var(--white);
+      color: var(--black-900);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -36,15 +51,18 @@
       padding: 0 var(--spacing-lg);
       display: flex;
       flex-direction: column;
-      gap: var(--spacing-lg);
+      gap: var(--spacing-xl);
     }
 
     /* Top controls */
     .top-bar {
       display: flex;
       flex-wrap: wrap;
-      gap: var(--spacing-sm);
+      gap: var(--spacing-md);
       align-items: center;
+      background: var(--white-smoke);
+      padding: var(--spacing-md);
+      border-radius: var(--radius-lg);
     }
 
     .pill-group {
@@ -57,21 +75,24 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 11px 16px;
-      border: 2px solid #0d0d0d;
+      padding: 11px 18px;
+      border: 2px solid var(--black-900);
       border-radius: 14px;
-      background: var(--surface);
+      background: var(--white);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     }
 
     .mua-ve-text {
       font-weight: 700;
       font-size: 15px;
-      color: var(--text);
+      line-height: 18px;
+      color: var(--black-900);
     }
 
     .date-text {
       font-weight: 400;
       font-size: 13px;
+      line-height: 17px;
       color: var(--muted);
     }
 
@@ -80,21 +101,35 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 11px 16px;
-      border: 2px solid #0d0d0d;
+      padding: 11px 18px;
+      border: 2px solid var(--black-900);
       border-radius: 14px;
-      background: var(--surface);
+      background: var(--white);
       font-weight: 700;
       font-size: 15px;
+      line-height: 18px;
       white-space: nowrap;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .pill:hover {
+      background: var(--black-900);
+      color: var(--white);
     }
 
     .pill.secondary {
-      border-color: #b8b8b8;
+      border-color: var(--black-100);
       color: var(--muted);
       font-weight: 400;
       font-size: 13px;
-      padding: 10px 14px;
+      line-height: 17px;
+      padding: 10px 16px;
+    }
+
+    .pill.secondary:hover {
+      border-color: var(--black-900);
+      background: var(--white);
     }
 
     /* Layout */
@@ -106,21 +141,25 @@
     }
 
     .main-panel {
-      background: #f2f2f2;
-      border-radius: var(--radius);
-      padding: var(--spacing-lg);
+      background: var(--white-smoke);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-xl);
       display: flex;
       flex-direction: column;
       gap: var(--spacing-md);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     }
 
     .header-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
       font-weight: 700;
-      font-size: 16px;
-      margin-bottom: 8px;
-      padding-bottom: 8px;
+      font-size: 15px;
+      line-height: 18px;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--black-100);
+      color: var(--black-900);
     }
 
     .movie-row {
@@ -128,8 +167,8 @@
       grid-template-columns: auto 1fr;
       gap: var(--spacing-md);
       align-items: start;
-      padding: 12px 0;
-      border-bottom: 1px solid #e3e3e3;
+      padding: var(--spacing-md) 0;
+      border-bottom: 1px solid var(--black-100);
     }
 
     .movie-row:last-child {
@@ -139,36 +178,91 @@
     .poster-container {
       display: flex;
       gap: 12px;
-      background: var(--surface);
-      padding: 12px;
-      border-radius: 8px;
+      background: var(--white);
+      padding: var(--spacing-md);
+      border-radius: var(--radius-md);
       align-items: center;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      width: 320px;
+      min-height: 92px;
+    }
+
+    .poster-container:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
     }
 
     .poster {
-      width: 80px;
-      height: 56px;
-      border-radius: 6px;
-      background: var(--panel);
+      width: 107px;
+      height: 60px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, #e0e0e0 0%, #c0c0c0 100%);
       flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .poster::after {
+      content: '🎬';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      opacity: 0.5;
     }
 
     .movie-meta {
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      min-width: 140px;
+      gap: 8px;
+      flex: 1;
+      min-width: 0;
     }
 
     .movie-info {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 12px;
     }
 
-    .title-line { font-size: 15px; font-weight: 700; }
-    .sub-line { font-size: 15px; font-weight: 400; }
-    .badge-line { font-size: 15px; font-weight: 700; }
+    .title-line { 
+      font-size: 15px; 
+      font-weight: 700;
+      line-height: 18px;
+      color: var(--black-900);
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    
+    .sub-line { 
+      font-size: 13px; 
+      font-weight: 400;
+      line-height: 17px;
+      color: var(--muted);
+    }
+    
+    .badge-line { 
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px 8px;
+      font-size: 13px; 
+      font-weight: 700;
+      line-height: 17px;
+      background: var(--blue);
+      border-radius: 4px;
+      color: var(--black-900);
+    }
+
+    .runtime {
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 14px;
+      color: var(--muted);
+    }
 
     .showtimes {
       display: flex;
@@ -177,40 +271,192 @@
     }
 
     .slot {
-      background: var(--panel);
-      border-radius: 8px;
-      padding: 10px 12px;
-      font-size: 14px;
+      background: var(--white);
+      border: 1px solid var(--black-100);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      font-size: 15px;
       font-weight: 700;
-      line-height: 1.4;
-      width: 140px;
+      line-height: 18px;
+      width: 150px;
       flex-shrink: 0;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
     }
 
-    .slot .room { display: block; font-weight: 400; font-size: 13px; margin-top: 2px; }
+    .slot:hover {
+      border-color: var(--black-900);
+      background: var(--black-900);
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .slot:hover .room {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .slot .time {
+      display: block;
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 18px;
+      margin-bottom: 4px;
+    }
+
+    .slot .room { 
+      display: block; 
+      font-weight: 400; 
+      font-size: 11px;
+      line-height: 14px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .slot .seats {
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 14px;
+      color: var(--muted);
+    }
+
+    .slot .seats.low {
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    .slot.morning::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--lemon);
+    }
+
+    .slot.sold-out {
+      opacity: 0.3;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
 
     /* Sidebar */
     .sidebar {
-      background: var(--panel);
-      border-radius: 18px;
-      padding: var(--spacing-lg);
+      background: var(--white-smoke);
+      border-radius: var(--radius-xl);
+      padding: var(--spacing-xl);
       display: flex;
       flex-direction: column;
-      gap: var(--spacing-md);
+      gap: var(--spacing-lg);
       min-height: 520px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     }
 
-    .sidebar h3 { font-size: 15px; font-weight: 700; }
+    .sidebar h3 { 
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 29px;
+      letter-spacing: -0.015em;
+      color: var(--black-900);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .user-info {
+      background: var(--white);
+      padding: var(--spacing-md);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .user-detail {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 17px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .card-section {
+      background: var(--white);
+      padding: var(--spacing-md);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .section-title {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 18px;
+      color: var(--black-900);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .card-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--spacing-sm) 0;
+      border-bottom: 1px solid var(--black-100);
+      font-size: 13px;
+      line-height: 17px;
+    }
+
+    .card-item:last-child {
+      border-bottom: none;
+    }
+
+    .card-label {
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .card-value {
+      font-weight: 700;
+      color: var(--black-900);
+    }
 
     .btn-accent {
-      align-self: flex-start;
-      background: var(--accent);
-      color: #0d0d0d;
+      align-self: stretch;
+      background: var(--pink);
+      color: var(--black-900);
       border: none;
-      border-radius: 10px;
-      padding: 10px 14px;
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
       font-weight: 700;
+      font-size: 15px;
+      line-height: 18px;
       cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 4px rgba(228, 118, 250, 0.3);
+    }
+
+    .btn-accent:hover {
+      background: var(--purple);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(228, 118, 250, 0.4);
+    }
+
+    .btn-secondary {
+      align-self: stretch;
+      background: var(--white);
+      color: var(--black-900);
+      border: 2px solid var(--black-900);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 18px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-top: var(--spacing-sm);
+    }
+
+    .btn-secondary:hover {
+      background: var(--black-900);
+      color: var(--white);
     }
 
     /* Bottom nav */
@@ -219,46 +465,114 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: #d9d9d9;
-      border-top: 1px solid #c7c7c7;
+      background: var(--white-smoke);
+      border-top: 2px solid var(--black-100);
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      padding: 10px 16px 14px;
-      gap: var(--spacing-sm);
+      padding: 12px 16px 16px;
+      gap: var(--spacing-md);
       align-items: center;
+      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.06);
     }
 
     .nav-item {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       font-size: 15px;
       font-weight: 700;
+      line-height: 18px;
+      color: var(--black-900);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .nav-item:hover .nav-dot {
+      transform: scale(1.1);
     }
 
     .nav-dot {
-      width: 42px;
-      height: 42px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
-      background: #bfbfbf;
-      border: 2px solid #8c8c8c;
+      background: var(--black-900);
+      border: 3px solid var(--black-900);
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
     }
 
     .nav-item.inactive .nav-dot {
-      background: #b3b3b3;
-      border-color: #b3b3b3;
+      background: var(--white);
+      border-color: var(--black-100);
     }
 
-    .nav-item.inactive { color: #5c5c5c; font-weight: 400; }
+    .nav-item.inactive { 
+      color: var(--muted); 
+      font-weight: 400;
+    }
+
+    /* Info Badge */
+    .info-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 14px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--white-smoke);
+      color: var(--black-900);
+    }
+
+    .format-badge {
+      background: var(--black-900);
+      color: var(--white);
+    }
+
+    /* Stats */
+    .stats {
+      display: flex;
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-md);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 29px;
+      color: var(--black-900);
+    }
+
+    .stat-label {
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 14px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
 
     @media (max-width: 960px) {
       .content { grid-template-columns: 1fr; }
       .sidebar { min-height: auto; }
       .page { margin-bottom: 140px; }
       .movie-row { grid-template-columns: 1fr; }
-      .poster-container { flex-direction: column; }
+      .poster-container { 
+        flex-direction: column; 
+        width: 100%;
+        min-height: auto;
+      }
       .showtimes { margin-top: var(--spacing-sm); }
+      .top-bar { flex-direction: column; align-items: stretch; }
+      .slot { width: 100%; }
     }
   </style>
 </head>
@@ -267,11 +581,11 @@
     <div class="top-bar">
       <div class="mua-ve-container">
         <span class="mua-ve-text">Mua vé</span>
-        <span class="date-text">16 Jul 2025</span>
+        <span class="date-text">📅 16 Jul 2025</span>
       </div>
-      <button class="pill" type="button">F&B/Quà lưu niệm</button>
-      <button class="pill" type="button">Tiền mặt: 1.000.000 đ</button>
-      <button class="pill" type="button">Credit/debit: 0 đ</button>
+      <button class="pill" type="button">🍿 F&B/Quà lưu niệm</button>
+      <button class="pill secondary" type="button">💵 Tiền mặt: 1.000.000 đ</button>
+      <button class="pill secondary" type="button">💳 Credit/debit: 0 đ</button>
     </div>
 
     <div class="content">
@@ -286,17 +600,35 @@
           <div class="poster-container">
             <div class="poster"></div>
             <div class="movie-meta">
-              <div class="title-line">28 Year later</div>
+              <div class="title-line">28 Years Later</div>
+              <div class="runtime">⏱ 120 phút | Kinh dị</div>
               <div class="movie-info">
-                <div class="sub-line">2D</div>
+                <span class="info-badge format-badge">2D</span>
                 <div class="badge-line">T13</div>
               </div>
             </div>
           </div>
           <div class="showtimes">
-            <div class="slot">15:45 - 17:45 <span class="room">Rạp 1 39/120</span></div>
-            <div class="slot">18:00 - 20:00 <span class="room">Rạp 1 39/120</span></div>
-            <div class="slot">20:30 - 22:30 <span class="room">Rạp 1 39/120</span></div>
+            <div class="slot morning">
+              <span class="time">09:30 - 11:20</span>
+              <span class="room">🎬 Rạp 1</span>
+              <span class="seats">39/120 chỗ</span>
+            </div>
+            <div class="slot">
+              <span class="time">15:45 - 17:45</span>
+              <span class="room">🎬 Rạp 1</span>
+              <span class="seats">52/120 chỗ</span>
+            </div>
+            <div class="slot">
+              <span class="time">18:00 - 20:00</span>
+              <span class="room">🎬 Rạp 1</span>
+              <span class="seats low">8/120 chỗ</span>
+            </div>
+            <div class="slot">
+              <span class="time">20:30 - 22:30</span>
+              <span class="room">🎬 Rạp 1</span>
+              <span class="seats">67/120 chỗ</span>
+            </div>
           </div>
         </div>
 
@@ -306,14 +638,24 @@
             <div class="poster"></div>
             <div class="movie-meta">
               <div class="title-line">ELITO</div>
+              <div class="runtime">⏱ 95 phút | Hài, Hành động</div>
               <div class="movie-info">
-                <div class="sub-line">2D</div>
+                <span class="info-badge format-badge">2D</span>
                 <div class="badge-line">P</div>
               </div>
             </div>
           </div>
           <div class="showtimes">
-            <div class="slot">11:00 - 13:00 <span class="room">Rạp 2 39/120</span></div>
+            <div class="slot morning">
+              <span class="time">11:00 - 13:00</span>
+              <span class="room">🎬 Rạp 2</span>
+              <span class="seats">78/120 chỗ</span>
+            </div>
+            <div class="slot">
+              <span class="time">16:30 - 18:25</span>
+              <span class="room">🎬 Rạp 2</span>
+              <span class="seats">45/120 chỗ</span>
+            </div>
           </div>
         </div>
 
@@ -322,16 +664,30 @@
           <div class="poster-container">
             <div class="poster"></div>
             <div class="movie-meta">
-              <div class="title-line">Doraemon t..</div>
+              <div class="title-line">Doraemon: Nobita's Earth Symphony</div>
+              <div class="runtime">⏱ 115 phút | Hoạt hình</div>
               <div class="movie-info">
-                <div class="sub-line">2D</div>
+                <span class="info-badge format-badge">2D</span>
                 <div class="badge-line">P</div>
               </div>
             </div>
           </div>
           <div class="showtimes">
-            <div class="slot">15:45 - 17:45 <span class="room">Rạp 3 39/120</span></div>
-            <div class="slot">15:45 - 17:45 <span class="room">Rạp 3 39/120</span></div>
+            <div class="slot morning">
+              <span class="time">10:00 - 11:55</span>
+              <span class="room">🎬 Rạp 3</span>
+              <span class="seats">95/120 chỗ</span>
+            </div>
+            <div class="slot">
+              <span class="time">13:45 - 15:40</span>
+              <span class="room">🎬 Rạp 3</span>
+              <span class="seats">64/120 chỗ</span>
+            </div>
+            <div class="slot">
+              <span class="time">15:45 - 17:45</span>
+              <span class="room">🎬 Rạp 3</span>
+              <span class="seats">58/120 chỗ</span>
+            </div>
           </div>
         </div>
 
@@ -340,17 +696,35 @@
           <div class="poster-container">
             <div class="poster"></div>
             <div class="movie-meta">
-              <div class="title-line">How to train..</div>
+              <div class="title-line">How to Train Your Dragon</div>
+              <div class="runtime">⏱ 145 phút | Phiêu lưu</div>
               <div class="movie-info">
-                <div class="sub-line">2D</div>
-                <div class="badge-line">P</div>
+                <span class="info-badge format-badge">3D</span>
+                <div class="badge-line">K</div>
               </div>
             </div>
           </div>
           <div class="showtimes">
-            <div class="slot">15:45 - 17:45 <span class="room">Rạp 5 39/120</span></div>
-            <div class="slot">15:45 - 17:45 <span class="room">Rạp 5 39/120</span></div>
-            <div class="slot">15:45 - 17:45 <span class="room">Rạp 5 39/120</span></div>
+            <div class="slot">
+              <span class="time">10:15 - 12:40</span>
+              <span class="room">🎬 Rạp 5</span>
+              <span class="seats">102/120 chỗ</span>
+            </div>
+            <div class="slot">
+              <span class="time">14:00 - 16:25</span>
+              <span class="room">🎬 Rạp 5</span>
+              <span class="seats">45/120 chỗ</span>
+            </div>
+            <div class="slot">
+              <span class="time">16:30 - 18:55</span>
+              <span class="room">🎬 Rạp 5</span>
+              <span class="seats low">15/120 chỗ</span>
+            </div>
+            <div class="slot sold-out">
+              <span class="time">19:30 - 21:55</span>
+              <span class="room">🎬 Rạp 5</span>
+              <span class="seats">Hết vé</span>
+            </div>
           </div>
         </div>
 
@@ -359,39 +733,89 @@
           <div class="poster-container">
             <div class="poster"></div>
             <div class="movie-meta">
-              <div class="title-line">Thám tử Kiên</div>
+              <div class="title-line">Thám Tử Lừng Danh Conan</div>
+              <div class="runtime">⏱ 110 phút | Hình sự</div>
               <div class="movie-info">
-                <div class="sub-line">2D</div>
+                <span class="info-badge format-badge">2D</span>
                 <div class="badge-line">T16</div>
               </div>
             </div>
           </div>
           <div class="showtimes">
-            <div class="slot">15:45 - 17:45 <span class="room">Rạp 1 39/120</span></div>
-            <div class="slot">15:45 - 17:45 <span class="room">Rạp 1 39/120</span></div>
-            <div class="slot">15:45 - 17:45 <span class="room">Rạp 1 39/120</span></div>
+            <div class="slot">
+              <span class="time">13:15 - 15:15</span>
+              <span class="room">🎬 Rạp 4</span>
+              <span class="seats">28/120 chỗ</span>
+            </div>
+            <div class="slot">
+              <span class="time">15:45 - 17:45</span>
+              <span class="room">🎬 Rạp 4</span>
+              <span class="seats">84/120 chỗ</span>
+            </div>
+            <div class="slot">
+              <span class="time">16:30 - 18:30</span>
+              <span class="room">🎬 Rạp 4</span>
+              <span class="seats low">12/120 chỗ</span>
+            </div>
+            <div class="slot">
+              <span class="time">21:00 - 23:00</span>
+              <span class="room">🎬 Rạp 4</span>
+              <span class="seats">67/120 chỗ</span>
+            </div>
           </div>
         </div>
       </div>
 
       <aside class="sidebar">
-        <h3>Yamada Tarou</h3>
-        <button class="btn-accent" type="button">Add Gift card</button>
+        <div>
+          <h3>👤 Yamada Tarou</h3>
+          <div class="user-info">
+            <div class="user-detail">📧 yamada.tarou@email.com</div>
+            <div class="user-detail">📱 +84 912 345 678</div>
+            <div class="user-detail">🎟 Điểm tích lũy: 2,450</div>
+          </div>
+        </div>
+
+        <div class="card-section">
+          <div class="section-title">💳 Gift Cards</div>
+          <div class="card-item">
+            <span class="card-label">AEV Gift Card #1234</span>
+            <span class="card-value">500.000 đ</span>
+          </div>
+          <div class="card-item">
+            <span class="card-label">Promo Card #5678</span>
+            <span class="card-value">200.000 đ</span>
+          </div>
+        </div>
+
+        <div class="stats">
+          <div class="stat-item">
+            <div class="stat-value">15</div>
+            <div class="stat-label">Phim đã xem</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">3</div>
+            <div class="stat-label">Voucher</div>
+          </div>
+        </div>
+
+        <button class="btn-accent" type="button">➕ Add Gift Card</button>
+        <button class="btn-secondary" type="button">🎁 Đổi điểm thưởng</button>
       </aside>
     </div>
   </div>
 
   <nav class="bottom-nav" aria-label="Navigation">
     <div class="nav-item">
-      <div class="nav-dot"></div>
+      <div class="nav-dot">🏠</div>
       <div>Trang chủ</div>
     </div>
     <div class="nav-item inactive">
-      <div class="nav-dot"></div>
+      <div class="nav-dot">⚙️</div>
       <div>Tùy chỉnh</div>
     </div>
     <div class="nav-item inactive">
-      <div class="nav-dot"></div>
+      <div class="nav-dot">🚪</div>
       <div>Đăng xuất</div>
     </div>
   </nav>
